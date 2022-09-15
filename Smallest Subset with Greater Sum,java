@@ -1,0 +1,22 @@
+class Solution { 
+    int minSubset(int[] Arr,int N) { 
+        Arrays.sort(Arr);
+       
+        long sum=0;
+        long count=0;
+        int j=0;
+        while(j<N){
+             
+             sum+=Arr[j];
+             j++;
+        }
+         int i=Arr.length-1;
+         
+         while(count<=sum){
+            count+=Arr[i];
+            sum-=Arr[i];
+            i--;
+        }
+        return Arr.length-1-i;
+    }
+}
